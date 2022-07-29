@@ -1,4 +1,4 @@
-var gridSize = 32;
+var gridSize = 40;
 var squareSize = 500/gridSize;
 
 function gridCreation(size) {
@@ -21,3 +21,19 @@ function gridCreation(size) {
 
 gridCreation(gridSize);
 
+function startPainting(mode) {
+    const gridItems = document.querySelectorAll('.square');
+    console.log(gridItems)
+  
+    gridItems.forEach((item) => {
+      item.count = 0;
+      item.addEventListener('mouseenter', (a) => {
+        if (mode === 'classic' || currentMode === 'classic' || currentMode === '') {
+          a.target.style.backgroundColor = '#707070';
+          a.target.style.opacity = 1;
+        } 
+      });
+    });
+  }
+
+  startPainting('classic');
