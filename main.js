@@ -1,4 +1,4 @@
-var gridSize = 33;
+var gridSize = 32;
 var squareSize = 500/gridSize;
 
 function gridCreation(size) {
