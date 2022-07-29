@@ -1,0 +1,21 @@
+#grid {
+    width: 500px;
+    height: 500px;
+    border: 10px double #000;
+}
+
+.row {
+    float: left;
+}
+
+.square {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #f00;
+    background-color: #fff;
+}
+
+.square:hover {
+    background-color: #000;
+}
