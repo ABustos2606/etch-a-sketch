@@ -1,5 +1,13 @@
 var gridSize = document.getElementById('slider').value
 var squareSize = 500/gridSize;
+var resetButton = document.getElementById(
+  "reset").onclick = function() {
+      gridReset();
+      gridSize = 32;
+      squareSize = 500/gridSize;
+      gridCreation(gridSize);
+      startPainting('classic');
+  }
 
 function gridCreation(size) {
     for (let i=1; i <=size; i++){
@@ -17,6 +25,16 @@ function gridCreation(size) {
         }
 
     }
+}
+
+function gridReset() {
+  let div2 = document.getElementById('grid');
+  var child = div2.lastElementChild; 
+    while (child) {
+      div2.removeChild(child);
+      child = div2.lastElementChild;
+    }
+  
 }
 
 function startPainting(mode) {
