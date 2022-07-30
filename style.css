@@ -16,6 +16,9 @@ main {
     width: 200px;
     background-color: #639617;
     margin: 0 25px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #grid {
