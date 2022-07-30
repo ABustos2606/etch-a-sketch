@@ -1,5 +1,13 @@
 var gridSize = document.getElementById('slider').value
 var squareSize = 500/gridSize;
+var colorInput = document.querySelector('#colorpicker');
+
+colorInput.addEventListener('input', () =>{
+    });
+
+
+
+
 var resetButton = document.getElementById("reset").onclick = function() {
       gridReset();
       gridCreation(gridSize);
@@ -56,7 +64,7 @@ function startPainting(mode) {
       item.count = 0;
       item.addEventListener('mouseenter', (a) => {
         if (mode === 'classic' || currentMode === 'classic' || currentMode === '') {
-          a.target.style.backgroundColor = '#707070';
+          a.target.style.backgroundColor = colorInput.value;
           a.target.style.opacity = 1;
         } 
       });

@@ -39,7 +39,3 @@ main {
     -webkit-box-sizing: border-box;
     background-color: #fff;
 }
-
-.square:hover {
-    background-color: #000;
-}
