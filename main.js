@@ -1,13 +1,25 @@
 var gridSize = document.getElementById('slider').value
 var squareSize = 500/gridSize;
-var resetButton = document.getElementById(
-  "reset").onclick = function() {
+var resetButton = document.getElementById("reset").onclick = function() {
       gridReset();
-      gridSize = 32;
-      squareSize = 500/gridSize;
       gridCreation(gridSize);
       startPainting('classic');
   }
+
+var slider = document.getElementById("slider");
+slider.onchange = (e) => changeSize(e.target.value)
+
+function changeSize(value) {
+  gridSize = value;
+  squareSize = 500/gridSize;
+  document.getElementById("sliderText").textContent = "grid size: "+gridSize+
+        " x "+gridSize;
+  gridReset();
+  gridCreation(gridSize);
+  startPainting('classic');
+
+}
+
 
 function gridCreation(size) {
     for (let i=1; i <=size; i++){
