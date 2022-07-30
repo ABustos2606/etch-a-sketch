@@ -1,4 +1,4 @@
-var gridSize = 40;
+var gridSize = document.getElementById('slider').value
 var squareSize = 500/gridSize;
 
 function gridCreation(size) {
@@ -19,12 +19,9 @@ function gridCreation(size) {
     }
 }
 
-gridCreation(gridSize);
-
 function startPainting(mode) {
     const gridItems = document.querySelectorAll('.square');
-    console.log(gridItems)
-  
+      
     gridItems.forEach((item) => {
       item.count = 0;
       item.addEventListener('mouseenter', (a) => {
@@ -34,6 +31,8 @@ function startPainting(mode) {
         } 
       });
     });
-  }
+}
 
-  startPainting('classic');
+
+gridCreation(gridSize);
+startPainting('classic');
