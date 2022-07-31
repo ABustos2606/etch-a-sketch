@@ -1,18 +1,28 @@
 var gridSize = document.getElementById('slider').value
 var squareSize = 500/gridSize;
+var mode = "color";
 var colorInput = document.querySelector('#colorpicker');
 
 colorInput.addEventListener('input', () =>{
+  colorInput.style.setProperty('--color',colorInput.value)
     });
 
+var colorButton = document.getElementById("color").onclick = function() {
+  mode = "color";
+  startPainting(mode);
+}
+
+var randomButton = document.getElementById("rainbow").onclick = function() {
+  mode = "rainbow";
+  startPainting(mode);
+}
 
 
-
-var resetButton = document.getElementById("reset").onclick = function() {
-      gridReset();
-      gridCreation(gridSize);
-      startPainting('classic');
-  }
+var clearButton = document.getElementById("clear").onclick = function() {
+  gridReset();
+  gridCreation(gridSize);
+  startPainting(mode);
+}
 
 var slider = document.getElementById("slider");
 slider.onchange = (e) => changeSize(e.target.value)
@@ -20,11 +30,11 @@ slider.onchange = (e) => changeSize(e.target.value)
 function changeSize(value) {
   gridSize = value;
   squareSize = 500/gridSize;
-  document.getElementById("sliderText").textContent = "grid size: "+gridSize+
+  document.getElementById("sliderText").textContent = gridSize+
         " x "+gridSize;
   gridReset();
   gridCreation(gridSize);
-  startPainting('classic');
+  startPainting(mode);
 
 }
 
@@ -63,14 +73,19 @@ function startPainting(mode) {
     gridItems.forEach((item) => {
       item.count = 0;
       item.addEventListener('mouseenter', (a) => {
-        if (mode === 'classic' || currentMode === 'classic' || currentMode === '') {
+        if (mode === 'color') {
           a.target.style.backgroundColor = colorInput.value;
           a.target.style.opacity = 1;
-        } 
+        } else {
+          const randomR = Math.floor(Math.random() * 256)
+          const randomG = Math.floor(Math.random() * 256)
+          const randomB = Math.floor(Math.random() * 256)
+          a.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+        }
       });
     });
 }
 
 
 gridCreation(gridSize);
-startPainting('classic');
+startPainting(mode);

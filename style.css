@@ -14,7 +14,8 @@ main {
 
 #options {
     width: 200px;
-    background-color: #639617;
+    border: 1px solid #999;
+    border-radius: 5px;
     margin: 0 25px 0 0;
     display: flex;
     flex-direction: column;
@@ -22,18 +23,47 @@ main {
     justify-content: space-around;
 }
 
-#colorpicker {
-    width: 50px;
-    height: 50px;
+#options button {
+    width: 100px;
+    height: 40px;
 }
+
+
+
+#colorpicker {
+    padding: 0;
+    /* Declare the color variable */
+    --color: #00f;
+    /* We will control height and width of input from here. */
+    width: 40px;
+    height: 40px;
+    position: relative;
+  }
+  
+  /* Create the pseudo class and add styling */
+  #colorpicker::before {
+    content: '';
+    /* Used to center it on top of the input. */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* This allows you to click on the main input. */
+    pointer-events: none;
+    /* Set height and width more than that of input. */
+    width: 150%;
+    height: 150%;
+    /* Implement the background using css varible. */
+    background: var(--color);
+    /* All the above styles add basic functunality. We can add further styling below. */
+    border-radius: 50%;
+  }
 
 .slidercontainer {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
-
 
 #grid {
     display: flex;
