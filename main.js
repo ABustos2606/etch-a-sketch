@@ -3,27 +3,34 @@ var squareSize = 500/gridSize;
 var mode = "color";
 var colorInput = document.querySelector('#colorpicker');
 
+
+// read the color picker
 colorInput.addEventListener('input', () =>{
   colorInput.style.setProperty('--color',colorInput.value)
+  mode = "color";
+  startPainting(mode)
     });
 
+// change to "color" mode
 var colorButton = document.getElementById("color").onclick = function() {
   mode = "color";
   startPainting(mode);
 }
 
+// change to "rainbow" mode
 var randomButton = document.getElementById("rainbow").onclick = function() {
   mode = "rainbow";
   startPainting(mode);
 }
 
-
+// reset the grid
 var clearButton = document.getElementById("clear").onclick = function() {
   gridReset();
   gridCreation(gridSize);
   startPainting(mode);
 }
 
+// change the size of the grid
 var slider = document.getElementById("slider");
 slider.onchange = (e) => changeSize(e.target.value)
 
@@ -38,7 +45,7 @@ function changeSize(value) {
 
 }
 
-
+// create the grid
 function gridCreation(size) {
     for (let i=1; i <=size; i++){
         let div1 = document.getElementById('grid');
@@ -57,6 +64,7 @@ function gridCreation(size) {
     }
 }
 
+// reset the grid
 function gridReset() {
   let div2 = document.getElementById('grid');
   var child = div2.lastElementChild; 
@@ -67,6 +75,7 @@ function gridReset() {
   
 }
 
+// painting function
 function startPainting(mode) {
     const gridItems = document.querySelectorAll('.square');
       
