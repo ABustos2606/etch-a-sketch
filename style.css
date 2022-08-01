@@ -1,6 +1,7 @@
 body {
     background: rgb(218,135,19);
     background: linear-gradient(90deg, rgba(218,135,19,1) 0%, rgba(187,140,195,1) 100%);
+    font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 header {
@@ -35,6 +36,11 @@ main {
 #options button:hover {
     background-color: #9960a1;
     color: #fff;
+}
+
+.select {
+    background-color: #9960a1!important;
+    color: #fff!important;
 }
 
 #colorpicker {

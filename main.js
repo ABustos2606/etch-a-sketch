@@ -2,24 +2,31 @@ var gridSize = document.getElementById('slider').value
 var squareSize = 500/gridSize;
 var mode = "color";
 var colorInput = document.querySelector('#colorpicker');
-
+var colorButton = document.getElementById("color")
+var rainbowButton = document.getElementById("rainbow")
 
 // read the color picker
 colorInput.addEventListener('input', () =>{
   colorInput.style.setProperty('--color',colorInput.value)
   mode = "color";
+  colorButton.classList.add('select');
+  rainbowButton.classList.remove('select');
   startPainting(mode)
     });
 
 // change to "color" mode
-var colorButton = document.getElementById("color").onclick = function() {
+colorButton.onclick = function() {
   mode = "color";
+  this.classList.add('select');
+  rainbowButton.classList.remove('select');
   startPainting(mode);
 }
 
 // change to "rainbow" mode
-var randomButton = document.getElementById("rainbow").onclick = function() {
+rainbowButton.onclick = function() {
   mode = "rainbow";
+  this.classList.add('select');
+  colorButton.classList.remove('select');
   startPainting(mode);
 }
 
