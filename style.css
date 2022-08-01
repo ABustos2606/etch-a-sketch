@@ -1,5 +1,6 @@
 body {
-    background-color: beige;
+    background: rgb(218,135,19);
+    background: linear-gradient(90deg, rgba(218,135,19,1) 0%, rgba(187,140,195,1) 100%);
 }
 
 header {
@@ -14,8 +15,8 @@ main {
 
 #options {
     width: 200px;
-    border: 1px solid #999;
-    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgb(0 0 0 / 84%) 0px 3px 8px;
     margin: 0 25px 0 0;
     display: flex;
     flex-direction: column;
@@ -26,36 +27,35 @@ main {
 #options button {
     width: 100px;
     height: 40px;
+    background-color: #c4b2c7;
+    border: none;
+    border-radius: 10px;
 }
 
-
+#options button:hover {
+    background-color: #9960a1;
+    color: #fff;
+}
 
 #colorpicker {
     padding: 0;
-    /* Declare the color variable */
-    --color: #00f;
-    /* We will control height and width of input from here. */
+    --color: #c4b2c7;
     width: 40px;
     height: 40px;
     position: relative;
   }
   
-  /* Create the pseudo class and add styling */
-  #colorpicker::before {
+
+#colorpicker::before {
     content: '';
-    /* Used to center it on top of the input. */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* This allows you to click on the main input. */
     pointer-events: none;
-    /* Set height and width more than that of input. */
     width: 150%;
     height: 150%;
-    /* Implement the background using css varible. */
     background: var(--color);
-    /* All the above styles add basic functunality. We can add further styling below. */
     border-radius: 50%;
   }
 
@@ -65,12 +65,103 @@ main {
     align-items: center;
 }
 
+input[type=range] {
+    height: 25px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: #c4b2c7;
+    border-radius: 1px;
+    border: 0px solid #474747;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 1px solid #474747;
+    height: 18px;
+    width: 18px;
+    border-radius: 25px;
+    background: #c4b2c7;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -7px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #c4b2c7;
+  }
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: #c4b2c7;
+    border-radius: 1px;
+    border: 0px solid #474747;
+  }
+  input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 1px solid #474747;
+    height: 18px;
+    width: 18px;
+    border-radius: 25px;
+    background: #c4b2c7;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #c4b2c7;
+    border: 0px solid #474747;
+    border-radius: 2px;
+    box-shadow: 0px 0px 0px #000000;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: #c4b2c7;
+    border: 0px solid #474747;
+    border-radius: 2px;
+    box-shadow: 0px 0px 0px #000000;
+  }
+  input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 0px 0px 0px #000000;
+    border: 1px solid #474747;
+    height: 18px;
+    width: 18px;
+    border-radius: 25px;
+    background: #c4b2c7;
+    cursor: pointer;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #c4b2c7;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #c4b2c7;
+  }
+  
+
 #grid {
     display: flex;
     justify-content: center;
     width: 500px;
     height: 500px;
-    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    box-shadow: rgb(0 0 0 / 84%) 0px 3px 8px;
 }
 
 .row {
